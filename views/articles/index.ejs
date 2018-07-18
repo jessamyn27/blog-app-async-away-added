@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+  <header>
+      <h1>Articles</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/articles/new">Create a new Article</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>List of Articles</h2>
+      <ul>
+        <% for(let i = 0; i < articles.length; i++){ %>
+          <li>
+            <a href="/articles/<%=articles[i]._id%>"><%=articles[i].title%></a>
+          </li>
+        <% } %>
+      </ul>
+    </main>
+  </body>
+</html>

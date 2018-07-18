@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><%=author.name%>'s Page</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/authors">Authors Index</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+<main>
+
+  <!-- Display Author's Articles With Links On Author Show Page -->
+  <section>
+    <h2>Articles Written By This Author:</h2>
+    <ul>
+        <% for(let i = 0; i < author.articles.length; i++){ %>
+            <li><a href="/articles/<%=author.articles[i]._id%>"><%=author.articles[i].title%></a></li>
+        <%} %>
+    </ul>
+</section>
+
+  <section>
+    <h2>Author Attributes</h2>
+    <ul>
+      <li>Name: <%=author.name%></li>
+      <section>
+        <a href="/authors/<%=author.id%>/edit">Edit</a>
+      </section>
+    </ul>
+    <form  action="/authors/<%=author.id%>?_method=DELETE" method="POST">
+<button type="submit">delete author</button>
+</form>
+  </section>
+</main>
+
+
+  </body>
+</html>

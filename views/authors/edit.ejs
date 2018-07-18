@@ -1,0 +1,26 @@
+!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Edit <%=author.name%></h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/authors">Authors Index</a></li>
+      </ul>
+    </nav>
+  </header><!-- /header -->
+  <main>
+    <h2>Author attributes</h2>
+    <form action="/authors/<%=author.id%>?_method=PUT" method="POST">
+      <input type="text" name="name" value="<%=author.name%>"><br>
+      <button type="submit">Update Author</button>
+    </form>
+  </main>
+</body>
+</html>

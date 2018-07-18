@@ -1,0 +1,42 @@
+!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <h1>Edit <%=article.title%>'s Info</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/articles">Articles Index</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Article Attributes:</h2>
+      <form action="/articles/<%=article._id%>?_method=PUT" method="post">
+        <select name="authorId">
+          <% for(let i = 0; i < authors.length; i++){ %>
+            <option value="<%=authors[i].id%>"
+              <% if(authors[i]._id.toString() === articleAuthor._id.toString()){%>
+                selected
+              <% }%>
+              > <%=authors[i].name%></option>
+          <% } %>
+        </select>
+
+
+        <input type="text" name="title" value="<%=article.title%>"/><br/>
+        <textarea name="body"><%=article.body%></textarea><br/>
+        <input type="submit" value="Update Article"/>
+      </form>
+    </main>
+  </body>
+</html>
